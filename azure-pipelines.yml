@@ -6,9 +6,10 @@ resources:
       ref: refs/heads/development
 
 extends:
-  template: third-party-library-all-platforms-from-conan-center.yml@templates
+  # template: third-party-library-all-platforms-from-conan-center.yml@templates
+  template: third-party-library-all-platforms-from-local-recipe-split.yml@templates
   parameters:
     package: openssl
     package_version: 1.1.1k
-    source_repository: public-conan-center
+    # source_repository: public-conan-center
     destination_repository: ccdc-3rdparty-conan
