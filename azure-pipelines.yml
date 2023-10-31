@@ -1,8 +1,9 @@
 resources:
   repositories:
     - repository: templates
-      type: git
-      name: ccdc-3rd-party/conan-azure-devops
+      type: github
+      endpoint: github
+      name: ccdc-opensource/conan-azure-devops
       ref: refs/heads/development
 
 extends:
@@ -10,6 +11,6 @@ extends:
   template: third-party-library-all-platforms-from-local-recipe-split.yml@templates
   parameters:
     package: openssl
-    package_version: 1.1.1n
+    package_version: 1.1.1t
     # source_repository: public-conan-center
     destination_repository: ccdc-3rdparty-conan
