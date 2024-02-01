@@ -13,7 +13,7 @@ class DefaultNameConan(ConanFile):
         if self.settings.os == "Android":
             cmake.definitions["CONAN_LIBCXX"] = ""
         openssl_version = Version(self.deps_cpp_info["openssl"].version)
-        if openssl_version.major == "1" and openssl_version.minor == "1":
+        if openssl_version.major > "1" or (openssl_version.major == "1" and openssl_version.minor == "1"):
             cmake.definitions["OPENSSL_WITH_ZLIB"] = False
         else:
             cmake.definitions["OPENSSL_WITH_ZLIB"] = not self.options["openssl"].no_zlib

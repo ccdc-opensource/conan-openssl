@@ -764,11 +764,12 @@ class OpenSSLConan(ConanFile):
 
         if self.options.shared:
             libdir = os.path.join(self.package_folder, "lib")
-            for file in os.listdir(libdir):
-                if self._is_mingw and file.endswith(".dll.a"):
-                    continue
-                if file.endswith(".a"):
-                    os.unlink(os.path.join(libdir, file))
+            if os.path.exists(libdir):
+                for file in os.listdir(libdir):
+                    if self._is_mingw and file.endswith(".dll.a"):
+                        continue
+                    if file.endswith(".a"):
+                        os.unlink(os.path.join(libdir, file))
 
         tools.rmdir(os.path.join(self.package_folder, "lib", "pkgconfig"))
 

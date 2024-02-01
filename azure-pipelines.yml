@@ -11,6 +11,6 @@ extends:
   template: third-party-library-all-platforms-from-local-recipe-split.yml@templates
   parameters:
     package: openssl
-    package_version: 1.1.1w
+    package_version: 3.0.13
     # source_repository: public-conan-center
     destination_repository: ccdc-3rdparty-conan
