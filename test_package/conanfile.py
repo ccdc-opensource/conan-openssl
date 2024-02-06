@@ -1,4 +1,5 @@
-from conans import CMake, tools, ConanFile
+from conans import ConanFile
+from conan.tools.cmake import CMakeToolchain, CMake, cmake_layout
 import os
 
 
@@ -8,7 +9,7 @@ class TestPackageConan(ConanFile):
     test_type = "explicit"
 
     def layout(self):
-        tools.cmake.cmake_layout(self)
+        cmake_layout(self)
 
     def requirements(self):
         self.requires(self.tested_reference_str)
@@ -19,7 +20,7 @@ class TestPackageConan(ConanFile):
               (not self.dependencies["openssl"].options.no_rmd160)))
 
     def generate(self):
-        tc = tools.cmake.CMakeToolchain(self)
+        tc = CMakeToolchain(self)
         tc.cache_variables["OPENSSL_WITH_LEGACY"] = self._with_legacy()
         tc.cache_variables["OPENSSL_WITH_MD4"] = not self.dependencies["openssl"].options.no_md4
         tc.cache_variables["OPENSSL_WITH_RIPEMD160"] = not self.dependencies["openssl"].options.no_rmd160
