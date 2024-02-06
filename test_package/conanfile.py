@@ -21,9 +21,9 @@ class TestPackageConan(ConanFile):
 
     def generate(self):
         tc = CMakeToolchain(self)
-        tc.cache_variables["OPENSSL_WITH_LEGACY"] = self._with_legacy()
-        tc.cache_variables["OPENSSL_WITH_MD4"] = not self.dependencies["openssl"].options.no_md4
-        tc.cache_variables["OPENSSL_WITH_RIPEMD160"] = not self.dependencies["openssl"].options.no_rmd160
+        #tc.cache_variables["OPENSSL_WITH_LEGACY"] = self._with_legacy()
+        #tc.cache_variables["OPENSSL_WITH_MD4"] = not self.dependencies["openssl"].options.no_md4
+        #tc.cache_variables["OPENSSL_WITH_RIPEMD160"] = not self.dependencies["openssl"].options.no_rmd160
         tc.generate()
 
     def build(self):
