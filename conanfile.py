@@ -809,6 +809,12 @@ class OpenSSLConan(ConanFile):
                                              ${OpenSSL_Crypto_DEPENDENCIES}
                                              ${OpenSSL_Crypto_FRAMEWORKS}
                                              ${OpenSSL_Crypto_SYSTEM_LIBS})
+            elseif(DEFINED openssl_OpenSSL_Crypto_LIBS_%(config)s)
+                set(OPENSSL_CRYPTO_LIBRARY ${openssl_OpenSSL_Crypto_LIBS_%(config)s})
+                set(OPENSSL_CRYPTO_LIBRARIES ${openssl_OpenSSL_Crypto_LIBS_%(config)s}
+                                             ${openssl_OpenSSL_Crypto_DEPENDENCIES_%(config)s}
+                                             ${openssl_OpenSSL_Crypto_FRAMEWORKS_%(config)s}
+                                             ${openssl_OpenSSL_Crypto_SYSTEM_LIBS_%(config)s})
             endif()
             if(DEFINED OpenSSL_SSL_LIBS)
                 set(OPENSSL_SSL_LIBRARY ${OpenSSL_SSL_LIBS})
@@ -816,6 +822,12 @@ class OpenSSLConan(ConanFile):
                                           ${OpenSSL_SSL_DEPENDENCIES}
                                           ${OpenSSL_SSL_FRAMEWORKS}
                                           ${OpenSSL_SSL_SYSTEM_LIBS})
+            elseif(DEFINED openssl_OpenSSL_SSL_LIBS_%(config)s)
+                set(OPENSSL_SSL_LIBRARY ${openssl_OpenSSL_SSL_LIBS_%(config)s})
+                set(OPENSSL_SSL_LIBRARIES ${openssl_OpenSSL_SSL_LIBS_%(config)s}
+                                          ${openssl_OpenSSL_SSL_DEPENDENCIES_%(config)s}
+                                          ${openssl_OpenSSL_SSL_FRAMEWORKS_%(config)s}
+                                          ${openssl_OpenSSL_SSL_SYSTEM_LIBS_%(config)s})
             endif()
             if(DEFINED OpenSSL_LIBRARIES)
                 set(OPENSSL_LIBRARIES ${OpenSSL_LIBRARIES})
