@@ -835,7 +835,7 @@ class OpenSSLConan(ConanFile):
             if(DEFINED OpenSSL_VERSION)
                 set(OPENSSL_VERSION ${OpenSSL_VERSION})
             endif()
-        """)
+        """% {"config":str(self.settings.build_type).upper()})
         tools.save(module_file, content)
 
     @property
