@@ -753,7 +753,7 @@ class OpenSSLConan(ConanFile):
             old_str = '-install_name $(INSTALLTOP)/$(LIBDIR)/'
             new_str = '-install_name '
 
-            makefile = "Makefile" if self._full_version == "1.1.1" else "Makefile.shared"
+            makefile = "Makefile" if self._full_version >= "1.1.1" else "Makefile.shared"
             tools.replace_in_file(makefile, old_str, new_str, strict=self.in_local_cache)
 
     def _replace_runtime_in_file(self, filename):
