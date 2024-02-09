@@ -659,7 +659,7 @@ class OpenSSLConan(ConanFile):
 
             self.run('{perl} ./Configure {args}'.format(perl=self._perl, args=args), win_bash=self._win_bash)
 
-            self._patch_install_name()
+            #self._patch_install_name()
 
             if self._use_nmake and self._full_version < "1.1.0":
                 if not self.options.no_asm and self.settings.arch == "x86":
